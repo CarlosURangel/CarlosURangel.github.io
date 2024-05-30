@@ -1,0 +1,145 @@
+---
+const testimonios = [
+  {
+    nombre: 'Leonor Bautista',
+    texto: 'Por su profesionalismo, modelo educativo y atención personalizada, así como la libertad de expresión de cada alumno.',
+    imagen: '/WallonTestimonio.svg'
+  },
+  {
+    nombre: 'Juan Pérez',
+    texto: 'Un ambiente propicio para el aprendizaje y un personal altamente capacitado hacen de esta institución una excelente opción para estudiar.',
+    imagen: '/WallonTestimonio.svg'
+  },
+  {
+    nombre: 'María López',
+    texto: 'Estoy muy agradecida por la educación personalizada y la dedicación que cada profesor muestra hacia los alumnos.',
+    imagen: '/WallonTestimonio.svg'
+  }
+];
+---
+
+<html lang="es">
+  <head>
+    <style>
+      .carousel {
+        position: relative;
+        overflow: hidden;
+        
+      }
+
+      .carousel-item {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        opacity: 0;
+        transition: opacity 0.5s ease;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+
+      .carousel-item.active {
+        position: relative;
+        opacity: 1;
+      }
+
+      .carousel-button {
+        cursor: pointer;
+      }
+
+      .carousel-button.active {
+        background-color: #34D399; /* color verde */
+      }
+
+      .testimonio-texto {
+        max-width: 600px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="relative bg-cover bg-center h-1/2" style="background-image: url('/bg-footer.svg');">
+      <div class="pt-64">
+        <h2 class="text-4xl font-bold text-white text-center mb-16">Testimonios</h2>
+        <div class="relative w-full max-w-4xl mx-auto h-[450px]"> <!-- Tailwind CSS para altura de 500px -->
+          <div class="carousel" id="carousel">
+            {testimonios.map((testimonio, index) => (
+              <div class={`carousel-item ${index === 0 ? 'active' : ''}`} data-index={index}>
+                <div class="flex-shrink-0">
+                  <img src={testimonio.imagen} alt={testimonio.nombre} class="w-24 h-24 rounded-full mx-auto mb-4 md:mb-0 md:mr-16"/>
+                </div>
+                <div class="testimonio-texto text-white text-center md:text-left">
+                  <p class="text-lg mb-4 mr-16 max-w-sm">"{testimonio.texto}"</p>
+                  <p class="font-semibold">{testimonio.nombre}</p>
+                </div>
+              </div>
+            ))}
+          </div>
+          <div class="flex justify-center mt-4" id="carousel-buttons">
+            {testimonios.map((_, index) => (
+              <button class="carousel-button mx-1 w-2 h-2 rounded-full bg-gray-400" aria-label={`Slide ${index + 1}`} data-index={index}></button>
+            ))}
+          </div>
+        </div>
+      </div>
+
+      <script>
+        document.addEventListener('DOMContentLoaded', () => {
+          const items = document.querySelectorAll('.carousel-item');
+          const buttons = document.querySelectorAll('.carousel-button');
+          let currentIndex = 0;
+
+          const updateActiveItem = (newIndex) => {
+            items[currentIndex].classList.remove('active');
+            buttons[currentIndex].classList.remove('active');
+            currentIndex = newIndex;
+            items[currentIndex].classList.add('active');
+            buttons[currentIndex].classList.add('active');
+          };
+
+          buttons.forEach((button, index) => {
+            button.addEventListener('click', () => {
+              updateActiveItem(index);
+            });
+          });
+
+          const autoSlide = () => {
+            const nextIndex = (currentIndex + 1) % items.length;
+            updateActiveItem(nextIndex);
+          };
+
+          setInterval(autoSlide, 4000);
+        });
+      </script>
+
+      <footer class="absolute bottom-0 left-0 right-0 bg-gray-800 py-8">
+        <div class="container mx-auto text-center text-white flex flex-col md:flex-row justify-between">
+          <div class="mb-4 md:mb-0">Derechos Reservados © Instituto Wallon.</div>
+          <div class="mb-4 md:mb-0">NORMAS DE CONVIVENCIA | AVISO DE PRIVACIDAD</div>
+          <div class="flex justify-center space-x-4">
+            <div class="rounded-full w-fit h-fit flex items-center justify-center">
+              <a href="https://www.facebook.com/educacionwallon/">
+                <img src="/facebook.svg" alt="Facebook" class="h-10 w-auto">
+              </a>
+            </div>
+            <div class="rounded-full w-fit h-fit flex items-center justify-center">
+              <a href="https://www.instagram.com/instituto.wallon/">
+                <img src="/instagram.svg" alt="Instagram" class="h-10 w-auto">
+              </a>
+            </div>
+            <div class="rounded-full w-fit h-fit flex items-center justify-center">
+              <a href="https://www.youtube.com/user/institutowallon">
+                <img src="/youtube.svg" alt="YouTube" class="h-10 w-auto">
+              </a>
+            </div>
+            <div class="rounded-full w-fit h-fit flex items-center justify-center">
+              <a href="https://wa.me/524422280012?text=Hola%20Instituto%20Wallon%0AVi%20su%20pagina%20web%20y%20me%20gustar%C3%ADa%20saber%20m%C3%A1s%20informaci%C3%B3n%20sobre%20su%20escuela.%0AMuchas%20gracias">
+                <img src="/whatsapp.svg" alt="WhatsApp" class="h-10 w-auto">
+              </a>
+            </div>
+          </div>
+        </div>
+      </footer>
+    </div>
+  </body>
+</html>

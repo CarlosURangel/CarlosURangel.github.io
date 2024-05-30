@@ -1,0 +1,118 @@
+---
+import Layout from '../layouts/Layout.astro'
+import Header from '../components/header.astro'
+import ValoresWallon from '../components/ValoresWallon.astro'
+import MetodologiaCard from '../components/metodologia-card.astro'
+import MetodologiaCard2 from '../components/metodologia-card2.astro'
+import MetodologiaCard3 from '../components/metodologia-card3.astro'
+import NuestrosLogros from '../components/NuestrosLogros.astro'
+import Testimonios from '../components/Testimonios.astro'
+
+---
+<style>
+	html {
+		scroll-behavior: smooth;
+	}
+</style>
+<Layout>
+<Header />
+
+	<main class="mt-24 bg-custom-gray-bg">
+
+
+		<div class="relative h-72 bg-cover bg-center" style="background-image: url('/bg1.svg');">
+			
+			<div class="absolute inset-0 flex items-center justify-center">
+
+				<div class="text-center">
+
+					<h1 class="text-white text-4xl font-bold mb-4">Recursos de enseñanza <br> y de planeación</h1>
+					<button id="contactButton" class="text-xl bg-custom-blue  text-white font-bold py-2 px-4 mt-5">Admisión</button>
+					
+					<script>
+						document.getElementById('contactButton').onclick = function() {
+							window.open('https://wa.me/524422280012?text=Hola%20Instituto%20Wallon%0AVi%20su%20pagina%20web%20y%20me%20gutar%C3%ADa%20saber%20m%C3%A1s%20informaci%C3%B3n%20sobre%20su%20escuela.%0AMuchas%20gracias', '_blank');
+						};
+					</script>
+				</div>
+			</div>
+		</div>
+
+		<div class="container mx-auto py-8">
+			<!-- <h1 class="relative text-3xl font-bold mb-4 text-custom-black-title inline-block after:content-[''] after:block after:w-24 after:h-1 after:bg-custom-green after:mt-5 mx-auto">Recursos</h1> -->
+
+			<div class="flex justify-center items-center">
+
+				<div class="text-center mx-4">
+				<img src="/imgPortal.svg" alt="Portal" class="w-80 h-64 object-cover mx-auto">
+				<p id="nosotros" class="text-xl font-bold flex items-center justify-center px-4 py-2 text-black">Portal</p>
+			  </div>
+
+			  <div  class="text-center mx-4 cursor-pointer"
+			  onclick="location.href='/kinder'">
+				<img src="/imgKinder.svg" alt="Kinder" class="w-80 h-64 object-cover mx-auto">
+				<p class="text-xl font-bold flex items-center justify-center px-4 py-2 text-black">Kinder</p>
+			  </div>
+
+			  <div
+  class="text-center mx-4 cursor-pointer"
+  onclick="location.href='/primaria'"
+>
+  <img src="/imgPrimaria.svg" alt="Primaria" class="w-80 h-64 object-cover mx-auto">
+  <p class="text-xl font-bold flex items-center justify-center px-4 py-2 text-black">Primaria</p>
+</div>
+			</div>
+		  </div>
+
+
+		  <div class="container mx-32 py-8">
+				<div class="flex">
+					<div class="w-1/2 p-4">
+						<h1 class=" text-3xl font-bold mb-4 text-custom-black-title inline-block after:content-[''] after:block after:w-24 after:h-1 after:bg-custom-green after:mt-5 mx-auto">Descubre Wallon</h1>
+						<p class="text-xl text-gray-700 mb-8">En Instituto Wallon ofrecemos Educación Bilingüe de calidad, potenciamos las habilidades de los alumnos a través de una Educación Activa proporcionándoles las herramientas necesarias para enfrentarse a los retos de la sociedad a través de la siguiente metodología.</p>
+					</div>
+					<div class="w-1/2 p-4">
+						<img src="/imgWallito.svg" alt="Mascota Wallon" class="mx-auto w-80 h-auto">
+					</div>
+				</div>
+
+				<div class="flex justify-between">
+					<div class="w-1/2 p-4 ">
+						<h1 class=" text-3xl font-bold mb-4 text-custom-black-title inline-block after:content-[''] after:block after:w-24 after:h-1 after:bg-custom-green after:mt-5 mx-auto">Misión</h1>
+						<p class="text-xl text-gray-700 mb-8 max-w-sm">Instruir en el desarrollo de habilidades cognitivas y sociales, formando niños(as) con una Educación Integral, basada en los principales valores de la sociedad. Ser distinguida por la responsabilidad y el trabajo pro  activo; que contribuirán en la transformación de su mundo.</p>
+					</div>
+					<div class="w-1/2 p-4">
+						<h1 class=" text-3xl font-bold mb-4 text-custom-black-title inline-block after:content-[''] after:block after:w-24 after:h-1 after:bg-custom-green after:mt-5 mx-auto">Visión</h1>
+						<p id="metodologia" class="text-xl text-gray-700 mb-8 max-w-sm">Ser una Institución reconocida ampliamente por su metodología educativa y humanista; capaz de alcanzar la certificación esperada. Siempre tomando como cimientos los núcleos principales de la sociedad.</p>
+					</div>
+				</div>
+		</div>		
+		<div class="text-center">
+			<h1 class="text-3xl font-bold mb-4 text-custom-black-title inline-block relative mx-auto">
+			  Metodología
+			  <span class="absolute -bottom-5 left-1/2 transform -translate-x-1/2 after:content-[''] after:block after:w-24 after:h-1 after:bg-custom-green"></span>
+			</h1>
+		</div>
+		<p class="text-xl text-gray-700 mt-14 mb-8 mx-32">En Instituto Wallon, creemos que todos los niños tienen el potencial de aprender y crecer a su máximo nivel. Nuestra filosofía educativa se basa en los siguientes principios:</p>
+		  
+		  <MetodologiaCard> 
+		  </MetodologiaCard>
+
+		  <MetodologiaCard2>
+		  </MetodologiaCard2>
+
+		  <MetodologiaCard3>
+		  </MetodologiaCard3>
+		  
+		  
+		  <ValoresWallon />
+		  
+		  <NuestrosLogros />
+		  <Testimonios />  
+
+		     
+		</main>
+
+    </Layout>
+
+
